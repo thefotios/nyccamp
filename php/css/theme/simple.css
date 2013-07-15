@@ -12,7 +12,6 @@
  *********************************************/
 body {
   background: white;
-  background-color: white;
 }
 
 .reveal {
@@ -68,6 +67,7 @@ body {
   color: #0000f1;
   text-shadow: none;
   border: none;
+  border-radius: 2px;
 }
 
 .reveal .roll span:after {
@@ -79,7 +79,7 @@ body {
  * IMAGES
  *********************************************/
 .reveal section img {
-  margin: 15px 0px;
+  margin: 15px;
   background: rgba(255, 255, 255, 0.12);
   border: 4px solid black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -99,40 +99,13 @@ body {
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls div.navigate-left,
-.reveal .controls div.navigate-left.enabled {
-  border-right-color: darkblue;
+.reveal .controls a {
+  color: black;
 }
 
-.reveal .controls div.navigate-right,
-.reveal .controls div.navigate-right.enabled {
-  border-left-color: darkblue;
-}
-
-.reveal .controls div.navigate-up,
-.reveal .controls div.navigate-up.enabled {
-  border-bottom-color: darkblue;
-}
-
-.reveal .controls div.navigate-down,
-.reveal .controls div.navigate-down.enabled {
-  border-top-color: darkblue;
-}
-
-.reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #0000f1;
-}
-
-.reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #0000f1;
-}
-
-.reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #0000f1;
-}
-
-.reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #0000f1;
+.reveal .controls a.enabled {
+  color: #0000f1;
+  text-shadow: 0px 0px 2px rgba(144, 207, 213, 0.3);
 }
 
 /*********************************************

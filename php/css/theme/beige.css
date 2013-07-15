@@ -23,7 +23,6 @@ body {
   background: -o-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
   background: -ms-radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
   background: radial-gradient(center, circle cover, white 0%, #f7f2d3 100%);
-  background-color: #f7f3de;
 }
 
 .reveal {
@@ -79,6 +78,7 @@ body {
   color: #c0a86e;
   text-shadow: none;
   border: none;
+  border-radius: 2px;
 }
 
 .reveal .roll span:after {
@@ -90,7 +90,7 @@ body {
  * IMAGES
  *********************************************/
 .reveal section img {
-  margin: 15px 0px;
+  margin: 15px;
   background: rgba(255, 255, 255, 0.12);
   border: 4px solid #333333;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
@@ -110,40 +110,13 @@ body {
 /*********************************************
  * NAVIGATION CONTROLS
  *********************************************/
-.reveal .controls div.navigate-left,
-.reveal .controls div.navigate-left.enabled {
-  border-right-color: #8b743d;
+.reveal .controls a {
+  color: #333333;
 }
 
-.reveal .controls div.navigate-right,
-.reveal .controls div.navigate-right.enabled {
-  border-left-color: #8b743d;
-}
-
-.reveal .controls div.navigate-up,
-.reveal .controls div.navigate-up.enabled {
-  border-bottom-color: #8b743d;
-}
-
-.reveal .controls div.navigate-down,
-.reveal .controls div.navigate-down.enabled {
-  border-top-color: #8b743d;
-}
-
-.reveal .controls div.navigate-left.enabled:hover {
-  border-right-color: #c0a86e;
-}
-
-.reveal .controls div.navigate-right.enabled:hover {
-  border-left-color: #c0a86e;
-}
-
-.reveal .controls div.navigate-up.enabled:hover {
-  border-bottom-color: #c0a86e;
-}
-
-.reveal .controls div.navigate-down.enabled:hover {
-  border-top-color: #c0a86e;
+.reveal .controls a.enabled {
+  color: #c0a86e;
+  text-shadow: 0px 0px 2px rgba(144, 207, 213, 0.3);
 }
 
 /*********************************************

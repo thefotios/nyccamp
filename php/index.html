@@ -1,356 +1,317 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>Slide on Cloud - Reveal.js Presentation on OpenShift PaaS</title>
+    <title>Linux Wizardry in OpenShift - Matt Hicks</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+    <meta name="description" content="The Linux Wizardry Behind the OpenShift PaaS">
+    <meta name="author" content="Matt Hicks">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/redhat.css" id="theme">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <!-- Full screen images (https://github.com/regisb/reveal.js-fullscreen-img) -->
+    <link rel="stylesheet" href="css/fullscreen-img.css">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-		<script>
-			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-		</script>
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
+      <div class="slides">
+        <style>
 
-				<section>
-					<h1>Reveal.js on</h1>
-					<h1>OpenShift</h1>
-					<h3>HTML Presentations on PaaS Made Easier</h3>
-                    <small>
-					<p>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></p>
-					<p>Powerd by <a href="http://openshift.com">OpenShift</a> / <a href="http://twitter.com/openshift">@openshift</a></p>
-                    </small>
-				</section>
+          .wizard .reveal .state-background {
+            background:url(images/wizard_tower.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            -moz-animation: pulse 8s ease;
+            -webkit-animation: pulse 8s ease;
+            -moz-animation-iteration-count: infinite;
+            -webkit-animation-iteration-count: infinite;
+            opacity: 0.0;
+          }
 
-				<section>
-					<h2>Heads Up</h2>
-					<p>
-						reveal.js is a framework for easily creating beautiful presentations using HTML. You'll need a browser with
-						support for CSS 3D transforms to see it in its full glory.
-					</p>
+          @-moz-keyframes pulse {
+             0% {opacity: 0.0;}
+             50% {opacity: 0.3;}
+             100% {opacity: 0.0;}
+          }
 
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
-				</section>
+          @-webkit-keyframes pulse {
+             0% {opacity: 0.0;}
+             50% {opacity: 0.5;}
+             100% {opacity: 0.0;}
+          }
 
-				<!-- Example of nested vertical slides -->
-				<section>
-					<section>
-						<h2>Vertical Slides</h2>
-						<p>
-							Slides can be nested inside of other slides,
-							try pressing <a href="#" class="navigate-down">down</a>.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 1</h2>
-						<p>Press down or up to navigate.</p>
-					</section>
-					<section>
-						<h2>Basement Level 2</h2>
-						<p>OpenShift</p>
-						<a class="test" href="http://openshift.com">
-							<img width="457" height="376" src="https://openshift.redhat.com/community/sites/default/files/openstackplusopenshift.png" alt="OpenShift">
-						</a>
-					</section>
-					<section>
-						<h2>Basement Level 3</h2>
-						<p>That's it, time to go back up.</p>
-						<a href="#/2" class="image">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
-						</a>
-					</section>
-				</section>
+          .suspect .reveal .state-background {
+            background:url(images/eyebrow.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.5;
+          }
 
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview. Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
+          .namespaces .reveal .state-background {
+            background:url(images/japanese_house.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.7;
+          }
 
-				<section>
-					<h2>Works in Mobile Safari</h2>
-					<p>
-						Try it out! You can swipe through the slides and pinch your way to the overview.
-					</p>
-				</section>
+          .selinux .reveal .state-background {
+            background:url(images/norad_vault.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            opacity:0.7;
+          }
+        </style>
 
-				<section>
-					<h2>Marvelous Unordered List</h2>
-					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-					</ul>
-				</section>
+        <section data-state="wizard">
+          <h3 class="middle2">The Linux Wizardry Behind the OpenShift PaaS</h3>
+          <p>Matt Hicks, Director of OpenShift, Red Hat</p>
+        </section>
 
-				<section>
-					<h2>Fantastic Ordered List</h2>
-					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
-					</ol>
-				</section>
+        <section>
+          <h3>So What Is</h3>
+          <img class="noshadow" src="images/openshift.png">
+        </section>
 
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
+        <section>
+          <h3 class="middle">A Platform as a Service (PaaS)</h3>
+        </section>
 
-						For those of you who like that sort of thing. Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
+        <section>
+          <img class="background" src="images/cloud_models.png">
+        </section>
 
-							<section data-markdown>
-							  ## Markdown support
+        <section>
+          <h4 class="middle2">You focus on your application</h4>
+          <h4>We'll focus on the OS</h4>
+        </section>
 
-							  For those of you who like that sort of thing.
-							  Instructions and a bit more info available [here](https://github.com/hakimel/reveal.js#markdown).
-							</section>
-					</script>
-				</section>
+        <section data-state="wizard">
+          <h3 class="middle">So where is the wizardry?</h3>
+        </section>
 
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=cube#/transitions">Cube</a> -
-						<a href="?transition=page#/transitions">Page</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a> -
-						<a href="?transition=linear#/transitions">Linear</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?#/transitions">Default</a>
-					</p>
-				</section>
+        <section>
+          <h2 class="middle comic">Introducing Linux Containers</h2>
+        </section>
 
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						Reveal.js comes with a few themes built in: <br>
-						<a href="?theme=sky#/themes">Sky</a> -
-						<a href="?theme=beige#/themes">Beige</a> -
-						<a href="?theme=simple#/themes">Simple</a> -
-						<a href="?theme=serif#/themes">Serif</a> -
-						<a href="?theme=night#/themes">Night</a> -
-						<a href="?#/themes">Default</a>
-					</p>
-					<p>
-						<small>
-							* Theme demos are loaded after the presentation which leads to flicker. In production you should load your theme in the <code>&lt;head&gt;</code> using a <code>&lt;link&gt;</code>.
-						</small>
-					</p>
-				</section>
+        <section data-state="suspect">
+          <h2 class="middle2 spoken">Containers?</h2>
+          <h3 class="spoken">What about virtualization?</h3>
+        </section>
 
-				<section>
-					<section data-state="alert">
-						<h2>Global State</h2>
-						<p>
-							Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-							will be added as a class to the document element when the slide is open. This lets you
-							apply broader style changes, like switching the background.
-						</p>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="blackout">
-						<h2>"blackout"</h2>
-						<a href="#" class="image navigate-down">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-state="soothe">
-						<h2>"soothe"</h2>
-						<a href="#" class="image navigate-next">
-							<img width="178" height="238" src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(-90deg);">
-						</a>
-					</section>
-				</section>
+        <section>
+          <h3>Virtualization has many strengths</h3>
+          <ul>
+            <li class="fragment roll-in">Secure segmentation of workloads
+            <li class="fragment roll-in">Strong networking segmentation
+            <li class="fragment roll-in">Widespread understanding
+          </ul>
+        </section>
 
-				<section data-state="customevent">
-					<h2>Custom Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
+        <section>
+          <h3>... and disadvantages</h3>
+          <ul>
+            <li class="fragment roll-in">Sometimes a full VM isn't warranted
+            <li class="fragment roll-in">A running OS is a lot of overhead
+            <li class="fragment roll-in">Each VM needs to be maintained
+          </ul>
+        </section>
 
-				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						The nice thing about standards is that there are so many to choose from</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.
-					</blockquote>
-				</section>
+        <section>
+          <h3>Containers have advantages</h3>
+          <ul>
+            <li class="fragment roll-in">Very lightweight, all sharing the core OS
+            <li class="fragment roll-in">Ability to share resources as needed
+            <li class="fragment roll-in">Can reduce VM sprawl
+          </ul>
+        </section>
 
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
+        <section>
+          <h3>... and disadvantages</h3>
+          <ul>
+            <li class="fragment roll-in">Still actively evolving
+            <li class="fragment roll-in">Network segmentation is ... complex
+            <li class="fragment roll-in">Opens attack vectors locally
+          </ul>
+        </section>
 
-    var nodes = document.querySelectorAll( selector );
+        <section>
+          <h3 class="middle2 spoken"><em>Containers&nbsp;</em> is a little generic</h3>
+          <h4 class="spoken">We're at a Linux conference, let's break it down</h4>
+        </section>
 
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
+        <section>
+          <h3>A Container to OpenShift</h3>
+          <ul>
+            <li class="fragment roll-in">Kernel namespace segmentation
+            <li class="fragment roll-in">Control group workload management
+            <li class="fragment roll-in">SELinux protection
+          </ul>
+        </section>
 
-      if( !node.className ) ) {
-        node.className += ' roll';
-      }
-    };
-  }
-}
-					</code></pre>
-					<p>Courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
+        <section data-state="namespaces">
+          <h2 class="middle">Kernel Namespaces</h2>
+        </section>
 
-				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+        <section>
+          <h3>Kernel Namespaces</h3>
+          <ul>
+            <li>Mount namespaces - filesystem 'restructing'
+            <li>UTS namespaces - hostname namespacing
+            <li>IPC / PID namespaces - process isolation
+            <li>Network namespaces - network stack isolation
+            <li>User namespaces - uid / gid isolation
+          </ul>
+        </section>
 
-				<section>
-					<section>
-						<h2>Fragmented Views</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<ol>
-							<li class="fragment"><code>any type</code></li>
-							<li class="fragment"><em>of view</em></li>
-							<li class="fragment"><strong>fragments</strong></li>
-						</ol>
+        <section data-state="cgroups" fullscreen-img="images/highway.jpg">
+          <h2 class="middle">Control Groups</h2>
+        </section>
 
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's a few styles of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment roll-in">roll-in</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-green">highlight-green</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
+        <section>
+          <h3>Some Control Group Subsystems</h3>
+          <ul>
+            <li>blkio - IO controls
+            <li>cpu - CPU controls
+            <li>memory - Memory controls
+            <li>net_cls - Networking tagging
+              <ul><li>Combine with something like 'tc' for controls</li></ul>
+            <li>net_prio - Network interface priority
+          </ul>
+        </section>
 
-				<section>
-					<h2>Spectacular image!</h2>
-					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
-						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
-					</a>
-				</section>
+        <section data-state="selinux">
+          <h2 class="middle">SELinux</h2>
+        </section>
 
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
-				</section>
+        <section data-state="selinux-disable">
+          <h3 class="middle2">Step 1. Unlearn this:</h3>
+          <h4 id="setenforce" class="fragment">$ setenforce 0</h4>
+        </section>
 
-				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press b or period on your keyboard to enter the 'paused' mode. This mode is helpful when you want to take distracting slides off the screen
-						during a presentation.
-					</p>
-				</section>
+        <section>
+          <h3>Step 2. Know its strengths</h3>
+          <ul>
+            <li>Whitelist approach to security (i.e. MAC)
+            <li>Very effective in controlled use cases
+            <li>Critical to control malicious activity
+          </ul>
+        </section>
 
-				<section>
-					<h2>Stellar Links</h2>
-					<ul>
-						<li><a href="https://github.com/hakimel/reveal.js">Reveal.js source code on GitHub</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js">OpenShift source code on GitHub</a></li>
-						<li><a href="http://twitter.com/hakimel">Follow Hakimel on Twitter</a></li>
-						<li><a href="http://twitter.com/openshift">Follow OpenShift on Twitter</a></li>
-					</ul>
-				</section>
+        <section>
+          <h3>Learn More</h3>
+          <ul>
+            <li>Kernel Namespaces - http://bit.ly/WuXpZm
+            <li>CGroups - http://red.ht/14IxJ2l
+            <li>SELinux - http://bit.ly/2rTL4h
+            <li>OpenShift (GitHub) - http://bit.ly/13Y5xe1
+            <li>OpenShift (Google+) - http://bit.ly/VFuWkP
+          </ul>
+        </section>
 
-				<section>
-					<h1>THE END</h1>
-					<h3>BY Hakim El Hattab / hakim.se</h3>
-					<h3>AND OpenShift / openshift.com</h3>
-				</section>
+        <section>
+          <h3>Thank you</h3>
+          <p>This presentation running on <a href="http://northeastlinuxfest-cloudydemo.rhcloud.com">OpenShift</a></p>
+          <p>Source available on <a href="http://github.com/matthicksj/wizardry-presentation">GitHub</a></p>
+          <p>Developed in HTML5 with <a href="https://github.com/hakimel/reveal.js">reveal.js</a></p>
+          <p>Matt Hicks, <a href="http://twitter.com/matthicksj">@matthicksj</a></p>
+        </section>
 
-			</div>
+        <section>
+          <h3>Attributions</h3>
+          <ol>
+            <li>Wizard Tower - http://bit.ly/ZtRKpW
+            <li>Gridlock - http://bit.ly/IhOM4f
+            <li>Japanese House - http://bit.ly/Z5eIUi
+            <li>Norad Vault - http://bit.ly/Z5f7pW
+            <li>Raised Eyebrow - http://bit.ly/WtfhIO
+            <li>Highway - http://bit.ly/ZGdC08
+          </ol>
+        </section>
 
-		</div>
+      </div>
+    </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquerytypewriter.js"></script>
 
-		<script>
+    <script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/fullscreen-img.js' },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
 
-		</script>
+      // Add a typewriter effect on the setenforce text
+      Reveal.addEventListener( 'fragmentshown', function( event ) {
+        // Make sure the fragment is the one we are looking for
+        if (event.fragment.id == 'setenforce') {
+          $('#' + event.fragment.id).typewrite({
+            'delay': 100, //time in ms between each letter
+            'extra_char': '', //"cursor" character to append after each display
+            'trim': true, // Trim the string to type (Default: false, does not trim)
+            'callback': null // if exists, called after all effects have finished
+          });
+        }
+      } );
 
-	</body>
+      // Round background image edges
+      Reveal.addEventListener( 'ready', function( event ) {
+        console.log("I'm ready");
+        console.log($('.rounded-img'));
+
+        $(".state-background").load(function() {
+          console.log(this);
+          $(this).wrap(function(){
+            return '<span class="' + $(this).attr('class') + '" style="background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
+          });
+          $(this).css("opacity","0");
+        });
+
+      });
+    </script>
+
+    <div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -140px; z-index: 20;">
+      <p>MATT HICKS - Northeast GNU/Linuxfest</p>
+    </div>
+  </body>
 </html>
