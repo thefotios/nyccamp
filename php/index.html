@@ -1,717 +1,480 @@
-
 <!doctype html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
-
-<title>Linux Wizardry in OpenShift - Matt Hicks</title>
-
-<meta name="description" content="The Linux Wizardry Behind the OpenShift PaaS">
-<meta name="author" content="Matt Hicks">
-
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-
-<link rel="stylesheet" href="css/reveal.css">
-<link rel="stylesheet" href="css/theme/redhat.css" id="theme">
-
-<!-- Full screen images (https://github.com/regisb/reveal.js-fullscreen-img) -->
-<link rel="stylesheet" href="css/fullscreen-img.css">
-
-<!-- For syntax highlighting -->
-<link rel="stylesheet" href="lib/css/zenburn.css">
-
-<!-- If the query includes 'print-pdf', use the PDF print sheet -->
-<script>
-document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
-</script>
-
-<!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
-</head>
-
-<body>
-
-<div class="reveal">
-  <div class="slides">
-    <section>
-      <div class="middle2">
-        <h3>
-          <p>OpenShift &amp; Drupal</p>
-          <p>A match made in the Cloud</p>
-        </h3>
-        <br/>
-        <div>
-          <p>Fotios Lindiakos</p>
-          <p>OpenShift Software Engineer</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h3>So What Is</h3>
-      <img class="noshadow" src="images/openshift.png">
-    </section>
-
-    <section>
-      <h3>A Platform as a Service (PaaS) from</h3>
-      <img class="noshadow" src="images/redhat-logo.png">
-    </section>
-
-    <section>
-      <section>
-        <h2 class="middle2">So What is PaaS?</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div class="fragment" data-fragment-index="0">
-          <i>
-            <font style="font-size: 42px;">
-              <b>It's kind of like Amazon, right?</b>
-            </font>
-          </i>
-        </div>
-        <div class="fragment" data-fragment-index="1">
-          <i>
-            <font style="font-size: 42px;">
-              <b>Nope!</b>
-            </font>
-          </i>
-          <br>
-        </div>
-      </section>
-
-      <section>
-        <h2>IaaS</h2>
-        <div>
-          <br>
-        </div>
-
-        <div>
-      
-        </div>
-        <p>Infrastructure as a Service</p>
-        <p>
-        <br>Servers run in the cloud</p>
-        <p>
-        <br>
-        <i>You build and manage EVERYTHING<br>(OS, App Servers, Database)</i>
-        </p>
-        <p>
-        <i>
-          <br>
-        </i>
-        </p>
-        <p class="fragment" data-fragment-index="0">
-        <i>
-          <font style="font-size: 42px;">
-            <b>Guess how much time you actually get to spend on your application?</b>
-          </font>
-        </i>
-        </p>
-      </section>
-      <section>
-        <h2>SAAS</h2>
-        <p>
-        <br>
-        </p>
-        <p>
-        <span>Software as a Service</span>
-        </p>
-        <p>
-        <span>
-          <br>
-        </span>
-        </p>
-        <p>Somebody else's application running in the cloud</p>
-        <p>
-        <br>
-        </p>
-        <p>
-        <i>You're restricted to the features of their application</i>
-        </p>
-        <p>
-        <i>
-          <br>
-        </i>
-        </p>
-        <p class="fragment" data-fragment-index="0">
-        <b>
-          <font color="#ffffff" style="font-size: 42px;">
-            <i>Want to change something? Good luck with that...</i>
-          </font>
-        </b>
-        </p>
-      </section>
-      <section>
-        <h2>Paas</h2>
-        <div>Platform as a Service</div>
-        <div>
-          <br>
-        </div>
-        <div>Your applications</div>
-        <div>Our platform</div>
-        <div>Running ANYWHERE</div>
-        <div>
-          <br>
-        </div>
-        <div class="fragment" data-fragment-index="0">
-          <i>
-            <font style="font-size: 42px;">Much less work than IaaS</font>
-          </i>
-        </div>
-        <div class="fragment" data-fragment-index="1">
-          <i>
-            <font style="font-size: 42px;">Much more flexible than SaaS</font>
-          </i>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-      </section>
-      <section>
-        <img class="background" src="images/cloud_models.png">
-      </section>
-
-      <section>
-        <h2>To put it all together</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50321/cloud_diagram.png" style="width: 548.9206680584551px; height: 451px; max-height: none; max-width: none;">
-          <br>
-        </div>
-      </section>
-      <section>
-        <h2>Why Paas?</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <span>YOU code the application, WE run it for you</span>
-          <br>
-        </div>
-        <div>
-          <span>
-            <br>
-          </span>
-        </div>
-        <div>
-          <span>Leverage the ease, scale, and power of the Cloud</span>
-        </div>
-        <div>
-          <span>
-            <br>
-          </span>
-        </div>
-        <div>
-          <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50339/workflow.png">
-          <span>
-            <br>
-          </span>
-        </div>
-        <div class="absolute-element fragment" style="position: absolute; width: 94px; height: 46px; z-index: 7; left: 176px; top: 520px;" data-fragment-index="0">Code</div>
-        <div class="absolute-element fragment" style="position: absolute; width: 123px; height: 46px; z-index: 5; left: 406px; top: 520px;" data-fragment-index="1">Deploy</div>
-        <div class="absolute-element fragment" style="position: absolute; width: 111px; height: 46px; z-index: 6; left: 660px; top: 520px;" data-fragment-index="2">Enjoy!</div>
-
-
-
-
-
-
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>PaaS is the future</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-        <blockquote>“The use of Platform-as-a-Service technologies will enable IT organizations to become more agile and more responsive to the business needs.” &nbsp;- Gartner<br>
-        </blockquote>
-        <p>
-        <font style="font-size: 18px;">
-          <br>
-        </font>
-        </p>
-        <p>
-        <font style="font-size: 18px;">
-          <br>
-        </font>
-        </p>
-        <p>
-        <font style="font-size: 18px;">
-          <br>
-        </font>
-        </p>
-        <p>
-        <font style="font-size: 18px;">
-          <br>
-        </font>
-        </p>
-        <p>
-        <font style="font-size: 18px;">http://www.gartner.com/technology/research/cloud-computing/report/paas-cloud.jsp</font>
-        </p>
-      </section>
-      <section>
-        <h2>The Old Days</h2>
-        <div>
-          <div font="" style="font-size: 24px;">
-            <ol>
-              <li>
-              <span style="text-align: center;">Have Idea</span>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8'>
+    <title>OpenShift & Drupal: A Match Made in the Cloud</title>
+    <meta content='OpenShift &amp; Drupal: A Match Made in the Cloud' name='description'>
+    <meta content='Fotios Lindiakos' name='author'>
+    <meta content='yes' name='apple-mobile-web-app-capable'>
+    <meta content='black-translucent' name='apple-mobile-web-app-status-bar-style'>
+    <link href='css/reveal.css' rel='stylesheet'>
+    <link href='css/theme/redhat.css' id='theme' rel='stylesheet'>
+    <!-- Full screen images (https://github.com/regisb/reveal.js-fullscreen-img) -->
+    <link href='css/fullscreen-img.css' rel='stylesheet'>
+    <!-- For syntax highlighting -->
+    <link href='lib/css/zenburn.css' rel='stylesheet'>
+    <style>
+      .thought p {
+        font-size: 42px;
+        font-weight: bold;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='reveal'>
+      <div class='slides'>
+        <section>
+          <div class='middle2'>
+            <h3>
+              <p>OpenShift & Drupal</p>
+              <p>A Match Made in the Cloud</p>
+            </h3>
+            <div>
               <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Get Budget</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Submit hardware acquisition request</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Wait</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Get Hardware</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Deploy framework/appserver</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Deploy testing tools</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Test testing tools</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Code, test, repeat</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Configure Prod servers (and buy them if needed)</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Push to Prod</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Launch</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Order more servers to meet demand</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Wait</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Deploy new servers</span>
-              <br>
-              </li>
-              <li>
-              <span style="text-align: center;">Etc.</span>
-              <br>
-              </li>
-            </ol>
+            </div>
+            <div>
+              <p>Fotios Lindiakos</p>
+              <p>OpenShift Software Engineer</p>
+            </div>
           </div>
-        </div>
-
-
-      </section>
-      <section>
-        <h2>Now</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <ol>
-            <li>Have Idea</li>
-            <li>Code, test repeat</li>
-            <li>Launch</li>
-            <li>Scale</li>
-          </ol>
-        </div>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>So Why OpenShift?</h2>
-      </section>
-      <section>
-        <h2>It's easy</h2>
-        <div>
-          <br>
-        </div>
-        <div>Work the way you want</div>
-        <div>
-          <br>
-        </div>
-        <div>
-          <ul>
-            <li>Developers work in their IDE, browser, or CLI</li>
-            <li>Limitless Possibilities</li>
+        </section>
+        <section>
+          <h3>So What Is</h3>
+          <img class='noshadow' src='images/openshift.png'>
+        </section>
+        <section>
+          <h3>A PaaS from</h3>
+          <img class='noshadow' src='images/redhat-logo.png'>
+        </section>
+        <section>
+          <section>
+            <h2>So what is this *aaS stuff?</h2>
+            <div>
+              <br>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <p class='fragment'>It's kind of like Amazon, right?</p>
+              <p class='fragment'>Nope!</p>
+            </div>
+          </section>
+          <section>
+            <img class='noshadow' src='images/cloud_models.png'>
+          </section>
+          <section>
+            <h3>
+              <p>Infrastructure as a Service</p>
+              <p>(IaaS)</p>
+            </h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Servers run in the cloud</p>
+              <p>You build and manage EVERYTHING</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <p class='fragment'>
+                Guess how much time you actually spend on your application?
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3>
+              <p>Software as a Service</p>
+              <p>(SaaS)</p>
+            </h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Somebody else's application running in the cloud</p>
+              <p>You're restricted to the features of their application</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <div class='fragment'>
+                <p>Want to change something?</p>
+                <p>Good luck with that...</p>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>
+              <p>Platform as a Service</p>
+              <p>(PaaS)</p>
+            </h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Your applications</p>
+              <p>Our platform</p>
+              <p>Running ANYWHERE</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <p class='fragment'>
+                Much less work than IaaS
+              </p>
+              <p class='fragment'>
+                Much more flexible than SaaS
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3>To put it all together</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <img class='noshadow' src='images/cloud_diagram.png' style='height: 451px'>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class='middle2'>How It Changes the Way You Innovate</h2>
+          </section>
+          <section>
+            <h3>PaaS is the future</h3>
+            <div>
+              <br>
+            </div>
+            <blockquote>
+              The use of Platform-as-a-Service technologies will enable IT organizations to become more agile and more responsive to the business needs.
+            </blockquote>
+            <div>
+              <br>
+              <p>
+                <font style='font-size: 18px;'>http://www.gartner.com/technology/research/cloud-computing/report/paas-cloud.jsp</font>
+              </p>
+            </div>
+          </section>
+          <section>
+            <h3>The Old Days</h3>
+            <div class='multicolumn1' style='font-size: 18px'>
+              <ol>
+                <li>Have Idea</li>
+                <li>Get Budget</li>
+                <li>Submit hardware acquisition request</li>
+                <li>Wait</li>
+                <li>Get Hardware</li>
+                <li>Deploy framework/appserver</li>
+                <li>Deploy testing tools</li>
+                <li>Test testing tools</li>
+                <li>Code, test, repeat</li>
+                <li>Configure Prod servers</li>
+                <li>Push to Prod</li>
+                <li>Launch</li>
+                <li>Order more servers to meet demand</li>
+                <li>Wait</li>
+                <li>Deploy new servers</li>
+                <li>Etc.</li>
+              </ol>
+            </div>
+          </section>
+          <section>
+            <h3>Now</h3>
+            <div>
+              <ol>
+                <li>Have Idea</li>
+                <li>Code, test, repeat</li>
+                <li>Launch</li>
+                <li>Scale</li>
+              </ol>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class='middle'>So Why OpenShift?</h2>
+          </section>
+          <section>
+            <h3>It's easy</h3>
+            <div>
+              <br>
+            </div>
+            <div>Work the way you want</div>
+            <div>
+              <br>
+            </div>
+            <div>
+              <ul>
+                <li>Developers work in their IDE, browser, or CLI</li>
+                <li>Limitless Possibilities</li>
+                <ul>
+                  <li>Java, Ruby, Node.js, PHP, Python, Perl</li>
+                  <li>MySQL, PostgreSQL, MongoDB, MariaDB</li>
+                  <li>Druapal, Wordpress, Rails, Django</li>
+                </ul>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h3>CLI Example</h3>
+            <div style='margin-left: 40px'>
+              <div class='fragment'>
+                <p style='text-align: left; '>Create</p>
+                <pre><code>rhc app create -a myapp -t jbossas-7&#x000A;rhc app cartridge add -a myapp -c mongodb-2.0</code></pre>
+              </div>
+              <div class='fragment'>
+                <p style='text-align: left; '>Code</p>
+                <pre><code>cd myapp&#x000A;cp /path/to/war/myfile.war ./deployments</code></pre>
+              </div>
+              <div class='fragment'>
+                <p style='text-align: left; '>Deploy</p>
+                <pre><code>git add ./deployments/myfile.war&#x000A;git commit -m "OpenShift is easy"&#x000A;git push</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h3>It's Secure</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <span>Secure Multitenancy with SELinux</span>
+              <br>
+            </div>
+          </section>
+          <section>
+            <h3>It's Open</h3>
+            <div>
+              <br>
+            </div>
+            <div>No lock-in</div>
             <ul>
-              <li>Java, Ruby, Node.js, PHP, Python, Perl</li>
-              <li>MySQL, PostgreSQL, MongoDB, MariaDB</li>
-              <li>Druapal, Wordpress, Rails, Django</li>
+              <li>Any hypervisor</li>
+              <li>Any middleware</li>
+              <li>Any cloud</li>
+              <li>Any datastore</li>
             </ul>
-          </ul>
-        </div>
-      </section>
-      <section>
-        <h2>CLI Example</h2>
-        <div>
-          <br>
-        </div>
-        <div style="margin-left: 40px" class="fragment" data-fragment-index="0">
-          <p style="text-align: left; ">Create</p>
-          <pre><code>rhc app create -a myapp -t jbossas-7
-rhc app cartridge add -a myapp -c mongodb-2.0</code></pre>
-        </div>
-        <div style="margin-left: 40px" class="fragment" data-fragment-index="1">
-          <p style="text-align: left; ">Code</p>
-          <pre><code>cd myapp
-cp /path/to/war/myfile.war ./deployments</code></pre>
-        </div>
-        <div style="margin-left: 40px" class="fragment" data-fragment-index="2">
-          <p style="text-align: left; ">Deploy</p>
-          <pre><code>git add ./deployments/myfile.war
-git commit -m "OpenShift is easy"
-git push</code></pre>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-      </section>
-      <section>
-        <h2>Title</h2>
-        <div>
-          <br>
-        </div>
-        <div style="text-align: left; ">
-          <blockquote style="margin: 0 0 0 40px; border: none; padding: 0px;">
-            <div style="text-align: left; ">asdf</div>
-          </blockquote>
-        </div>
-      </section>
-      <section>
-        <h2>It's Secure</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <span>Secure Multitenancy with SELinux</span>
-          <br>
-        </div>
-      </section>
-      <section>
-        <h2>It's Open</h2>
-        <div>
-          <br>
-        </div>
-        <div>No lock-in</div>
-        <div>
-          <br>
-        </div>
-        <div>Any &nbsp;hypervisor</div>
-        <div>Any middleware</div>
-        <div>Any cloud</div>
-        <div>Any datastore</div>
-      </section>
-      <section>
-        <h2>It's Enterprise Class</h2>
-        <div>
-          <br>
-        </div>
-        <div>Operated by Red Hat</div>
-        <div>
-          <br>
-        </div>
-        <div>We will be here when you need us</div>
-      </section>
-      <section>
-        <h2>It's Open Source</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <a href="http://openshift.github.io/">http://openshift.github.io/<br>
-          </a>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div>PaaS built by the community</div>
-        <div>The latest stuff, the most innovation</div>
-        <div>
-          <br>
-        </div>
-        <div>Apache 2.0 License</div>
-        <div>Available as source, RPMs, ISO, VM image</div>
-        <div>
-          <br>
-        </div>
-        <div>IRC, forums, email</div>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>Enterprises want paas</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <div>Helps drive innovation</div>
-          <div>Enables faster time-to-market</div>
-          <div>Reduces costs</div>
-          <div>Drives more efficient use of infrastructure</div>
-          <div>Enables Business Transformation</div>
-        </div>
-        <div>
-          <br>
-        </div>
-      </section>
-      <section>
-        <h2>But it brings challenges</h2>
-        <div>
-          <br>
-        </div>
-        <div>Security</div>
-        <div>Compliance</div>
-        <div>Data Locality</div>
-        <div>Governance</div>
-        <div>
-          <br>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div class="fragment">
-          <i>Today's PaaS 1.0 solutions don't have the answers</i>
-        </div>
-      </section>
-      <section>
-        <h2>PaaS 2.0</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <div>Red Hat Will Be Delivering&nbsp;</div>
-          <div>OpenShift PaaS&nbsp;</div>
-          <div>for Real World Enterprise Consumption</div>
-        </div>
-      </section>
-      <section>
-        <h2>Hosted</h2>
-        <div>
-          <br>
-        </div>
-        <div>
-          <a href="http://openshift.redhat.com">http://openshift.redhat.com</a>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div>PaaS in the public cloud</div>
-        <div>Runs on AWS</div>
-        <div>Managed by Red Hat</div>
-        <div>
-          <br>
-        </div>
-        <div>Free and paid tiers</div>
-      </section>
-      <section>
-        <h2>Enterprise</h2>
-        <div>
-          <br>
-        </div>
-        <div>OpenShift platform running on your cloud</div>
-        <div>
-          <br>
-        </div>
-        <div>DevOps</div>
-        <div>
-          <i>Let developers innovate at their own pace</i>
-        </div>
-        <div>
-          <br>
-        </div>
-        <div>ITOps</div>
-        <div>
-          <i>Allow IT to maintain control and governance</i>
-        </div>
-        <div>
-          <br>
-        </div>
-      </section>
-    </section>
-    <section>
-      <section>
-        <h2>Demo Time</h2>
-      </section>
-      <section>
-        <div>
-          <br>
-        </div>
-        <font style="font-size: 54px;">Thank You</font>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <span style="font-size: 54px;">
-            <br>
-          </span>
-        </div>
-        <div style="text-align: right; ">
-          <font style="font-size: 32px;">Fotios Lindiakos &nbsp;</font>
-        </div>
-        <div>
-          <div style="text-align: right;">
-            <font style="font-size: 32px;">fotios@redhat.com</font> &nbsp;</div>
+          </section>
+          <section>
+            <h3>It's Enterprise Class</h3>
+            <div>
+              <br>
+            </div>
+            <div>Operated by Red Hat</div>
+            <div>
+              <br>
+            </div>
+            <div>We will be here when you need us</div>
+          </section>
+          <section>
+            <h3>It's Open Source</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <a href='http://openshift.github.io/'>
+                http://openshift.github.io/
+                <br>
+              </a>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div>PaaS built by the community</div>
+            <div>The latest stuff, the most innovation</div>
+            <div>
+              <br>
+            </div>
+            <div>Apache 2.0 License</div>
+            <div>Available as source, RPMs, ISO, VM image</div>
+            <div>
+              <br>
+            </div>
+            <div>IRC, forums, email</div>
+            <div>
+              <br>
+            </div>
+            <div>
+              <br>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class='middle2'>Enterprises want PaaS</h2>
+          </section>
+          <section>
+            <h3>Why?</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Helps drive innovation</p>
+              <p>Enables faster time-to-market</p>
+              <p>Reduces costs</p>
+              <p>Drives more efficient use of infrastructure</p>
+              <p>Enables Business Transformation</p>
+            </div>
+          </section>
+          <section>
+            <h3>But it brings challenges</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Security</p>
+              <p>Compliance</p>
+              <p>Data Locality</p>
+              <p>Governance</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <p class='fragment'>Today's PaaS 1.0 solutions don't have the answers</p>
+            </div>
+          </section>
+          <section>
+            <h3>PaaS 2.0</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Red Hat Is Delivering OpenShift PaaS for Real World Enterprise Consumption</p>
+            </div>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2 class='middle2'>So How Do I Get It?</h2>
+          </section>
+          <section>
+            <h3>Hosted</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <a href='http://openshift.redhat.com'>http://openshift.redhat.com</a>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>PaaS in the public cloud</p>
+              <p>Runs on AWS</p>
+              <p>Managed by Red Hat</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div>Free and paid tiers</div>
+          </section>
+          <section>
+            <h3>Enterprise</h3>
+            <div>
+              <br>
+            </div>
+            <div>OpenShift platform running on your cloud</div>
+            <div>
+              <br>
+            </div>
+            <div>DevOps</div>
+            <div>
+              <i>Let developers innovate at their own pace</i>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div>ITOps</div>
+            <div>
+              <i>Allow IT to maintain control and governance</i>
+            </div>
+            <div>
+              <br>
+            </div>
+          </section>
+        </section>
+        <section>
+          <h2 class='middle2'>Demo Time</h2>
+        </section>
+        <section>
+          <h2>Thank You</h2>
           <div>
             <br>
           </div>
-          <div class="absolute-element" style="position: absolute; width: 468px; height: 467px; z-index: 4; left: 4px; top: 173px;">
-            <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50372/2000px-OpenShift-LogoType.svg.png" style="width: 428px; height: 428px; max-height: none; max-width: none;">
-            <br>
+          <div>
+            <p>Fotios Lindiakos</p>
+            <p>fotios@redhat.com</p>
           </div>
-          <div class="absolute-element" style="position: absolute; width: 468px; height: 467px; z-index: 4; left: 4px; top: 173px;">
-            <br>
+          <div>
+            <img class='noshadow' src='images/openshift.png' style='height: 400px'>
           </div>
-        </div>
-      </section>
-    </section>
-  </div>
-
-
-</div>
-
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.min.js"></script>
-<script src="js/jquery-1.9.1.min.js"></script>
-<script src="js/jquerytypewriter.js"></script>
-
-<script>
-
-// Full list of configuration options available here:
-// https://github.com/hakimel/reveal.js#configuration
-Reveal.initialize({
-  controls: true,
-  progress: true,
-  history: true,
-
-  theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-  transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
-
-  // Optional libraries used to extend on reveal.js
-  dependencies: [
-    { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
-    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-    { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-    { src: 'lib/js/fullscreen-img.js' },
-    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-  ]
-});
-
-// Add a typewriter effect on the setenforce text
-Reveal.addEventListener( 'fragmentshown', function( event ) {
-  // Make sure the fragment is the one we are looking for
-  if (event.fragment.id == 'setenforce') {
-    $('#' + event.fragment.id).typewrite({
-      'delay': 100, //time in ms between each letter
-      'extra_char': '', //"cursor" character to append after each display
-      'trim': true, // Trim the string to type (Default: false, does not trim)
-      'callback': null // if exists, called after all effects have finished
-    });
-  }
-} );
-
-// Round background image edges
-Reveal.addEventListener( 'ready', function( event ) {
-  console.log("I'm ready");
-  console.log($('.rounded-img'));
-
-  $(".state-background").load(function() {
-    console.log(this);
-    $(this).wrap(function(){
-      return '<span class="' + $(this).attr('class') + '" style="background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
-    });
-    $(this).css("opacity","0");
-  });
-
-});
-</script>
-
-<div class="footer" class="share-reveal" style="position: absolute; bottom: 10px; left: 50%; margin-left: -140px; z-index: 20;">
-  <p>MATT HICKS - Northeast GNU/Linuxfest</p>
-</div>
-</body>
+        </section>
+      </div>
+    </div>
+    <div class='share-reveal' style='position: absolute; bottom: 10px; left: 50%; margin-left: -140px; z-index: 20;'>
+      <p>Fotios Lindiakos - NYC Camp 2013</p>
+    </div>
+    <script src='lib/js/head.min.js'></script>
+    <script src='js/reveal.min.js'></script>
+    <script src='js/jquery-1.9.1.min.js'></script>
+    <script src='js/jquerytypewriter.js'></script>
+    <script>
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+      
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+      
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/fullscreen-img.js' },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+      
+      // Add a typewriter effect on the setenforce text
+      Reveal.addEventListener( 'fragmentshown', function( event ) {
+        // Make sure the fragment is the one we are looking for
+        if (event.fragment.id == 'setenforce') {
+          $('#' + event.fragment.id).typewrite({
+            'delay': 100, //time in ms between each letter
+            'extra_char': '', //"cursor" character to append after each display
+            'trim': true, // Trim the string to type (Default: false, does not trim)
+            'callback': null // if exists, called after all effects have finished
+          });
+        }
+      } );
+      
+      // Round background image edges
+      Reveal.addEventListener( 'ready', function( event ) {
+        console.log("I'm ready");
+        console.log($('.rounded-img'));
+      
+        $(".state-background").load(function() {
+          console.log(this);
+          $(this).wrap(function(){
+            return '<span class="' + $(this).attr('class') + '" style="background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
+          });
+          $(this).css("opacity","0");
+        });
+      
+      });
+    </script>
+  </body>
 </html>

@@ -1,0 +1,382 @@
+<!doctype html>
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %title OpenShift & Drupal: A Match Made in the Cloud
+    %meta{:content => "OpenShift & Drupal: A Match Made in the Cloud", :name => "description"}/
+    %meta{:content => "Fotios Lindiakos", :name => "author"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "black-translucent", :name => "apple-mobile-web-app-status-bar-style"}/
+    %link{:href => "css/reveal.css", :rel => "stylesheet"}/
+    %link#theme{:href => "css/theme/redhat.css", :rel => "stylesheet"}/
+    / Full screen images (https://github.com/regisb/reveal.js-fullscreen-img)
+    %link{:href => "css/fullscreen-img.css", :rel => "stylesheet"}/
+    / For syntax highlighting
+    %link{:href => "lib/css/zenburn.css", :rel => "stylesheet"}/
+
+    :css
+      .thought p {
+        font-size: 42px;
+        font-weight: bold;
+        font-style: italic;
+      }
+
+  %body
+    .reveal
+      .slides
+        %section
+          .middle2
+            %h3
+              %p OpenShift & Drupal
+              %p A Match Made in the Cloud
+            %div
+              %br/
+            %div
+              %p Fotios Lindiakos
+              %p OpenShift Software Engineer
+
+        %section
+          %h3 So What Is
+          %img.noshadow(src="images/openshift.png")
+
+        %section
+          %h3 A PaaS from
+          %img.noshadow(src="images/redhat-logo.png")
+
+        %section
+          %section
+            %h2 So what is this *aaS stuff?
+            %div
+              %br/
+            %div
+              %br/
+            .thought
+              %p.fragment It's kind of like Amazon, right?
+              %p.fragment Nope!
+
+          %section
+            %img.noshadow(src="images/cloud_models.png")
+
+          %section
+            %h3 
+              %p Infrastructure as a Service
+              %p (IaaS)
+            %div
+              %br/
+            %div
+              %p Servers run in the cloud
+              %p You build and manage EVERYTHING
+            %div
+              %br/
+            .thought
+              %p.fragment
+                Guess how much time you actually spend on your application?
+          %section
+            %h3
+              %p Software as a Service
+              %p (SaaS)
+            %div
+              %br/
+            %div
+              %p Somebody else's application running in the cloud
+              %p You're restricted to the features of their application
+            %div
+              %br/
+            .thought
+              .fragment
+                %p Want to change something? 
+                %p Good luck with that...
+          %section
+            %h3
+              %p Platform as a Service
+              %p (PaaS)
+            %div
+              %br/
+            %div 
+              %p Your applications
+              %p Our platform
+              %p Running ANYWHERE
+            %div
+              %br/
+            .thought
+              %p.fragment
+                Much less work than IaaS
+              %p.fragment
+                Much more flexible than SaaS
+          %section
+            %h3 To put it all together
+            %div
+              %br/
+            %div
+              %img.noshadow{:src => "images/cloud_diagram.png", :style => "height: 451px"}
+        %section
+          %section
+            %h2.middle2 How It Changes the Way You Innovate
+          %section
+            %h3 PaaS is the future
+            %div
+              %br/
+            %blockquote
+              The use of Platform-as-a-Service technologies will enable IT organizations to become more agile and more responsive to the business needs.
+            %div
+              %br/
+              %p
+                %font{:style => "font-size: 18px;"} http://www.gartner.com/technology/research/cloud-computing/report/paas-cloud.jsp
+          %section
+            %h3 The Old Days
+            %div.multicolumn1{:style => "font-size: 18px"}
+              %ol
+                %li Have Idea
+                %li Get Budget
+                %li Submit hardware acquisition request
+                %li Wait
+                %li Get Hardware
+                %li Deploy framework/appserver
+                %li Deploy testing tools
+                %li Test testing tools
+                %li Code, test, repeat
+                %li Configure Prod servers
+                %li Push to Prod
+                %li Launch
+                %li Order more servers to meet demand
+                %li Wait
+                %li Deploy new servers
+                %li Etc.
+          %section
+            %h3 Now
+            %div
+              %ol
+                %li Have Idea
+                %li Code, test, repeat
+                %li Launch
+                %li Scale
+
+        %section
+          %section
+            %h2.middle So Why OpenShift?
+          %section
+            %h3 It's easy
+            %div
+              %br/
+            %div Work the way you want
+            %div
+              %br/
+            %div
+              %ul
+                %li Developers work in their IDE, browser, or CLI
+                %li Limitless Possibilities
+                %ul
+                  %li Java, Ruby, Node.js, PHP, Python, Perl
+                  %li MySQL, PostgreSQL, MongoDB, MariaDB
+                  %li Druapal, Wordpress, Rails, Django
+          %section
+            %h3 CLI Example
+            %div{:style => "margin-left: 40px"}
+              .fragment
+                %p{:style => "text-align: left; "} Create
+                %pre
+                  %code
+                    :preserve
+                      rhc app create -a myapp -t jbossas-7
+                      rhc app cartridge add -a myapp -c mongodb-2.0      
+              .fragment
+                %p{:style => "text-align: left; "} Code
+                %pre
+                  %code
+                    :preserve
+                      cd myapp
+                      cp /path/to/war/myfile.war ./deployments
+              .fragment
+                %p{:style => "text-align: left; "} Deploy
+                %pre
+                  %code
+                    :preserve
+                      git add ./deployments/myfile.war
+                      git commit -m "OpenShift is easy"
+                      git push
+          %section
+            %h3 It's Secure
+            %div
+              %br/
+            %div
+              %span Secure Multitenancy with SELinux
+              %br/
+          %section
+            %h3 It's Open
+            %div
+              %br/
+            %div No lock-in
+            %ul
+              %li Any hypervisor
+              %li Any middleware
+              %li Any cloud
+              %li Any datastore
+          %section
+            %h3 It's Enterprise Class
+            %div
+              %br/
+            %div Operated by Red Hat
+            %div
+              %br/
+            %div We will be here when you need us
+          %section
+            %h3 It's Open Source
+            %div
+              %br/
+            %div
+              %a{:href => "http://openshift.github.io/"}
+                http://openshift.github.io/
+                %br/
+            %div
+              %br/
+            %div PaaS built by the community
+            %div The latest stuff, the most innovation
+            %div
+              %br/
+            %div Apache 2.0 License
+            %div Available as source, RPMs, ISO, VM image
+            %div
+              %br/
+            %div IRC, forums, email
+            %div
+              %br/
+            %div
+              %br/
+        %section
+          %section
+            %h2.middle2 Enterprises want PaaS
+          %section
+            %h3 Why?
+            %div
+              %br/
+            %div
+              %p Helps drive innovation
+              %p Enables faster time-to-market
+              %p Reduces costs
+              %p Drives more efficient use of infrastructure
+              %p Enables Business Transformation
+          %section
+            %h3 But it brings challenges
+            %div
+              %br/
+            %div
+              %p Security
+              %p Compliance
+              %p Data Locality
+              %p Governance
+            %div
+              %br/
+            .thought
+              %p.fragment Today's PaaS 1.0 solutions don't have the answers
+          %section
+            %h3 PaaS 2.0
+            %div
+              %br/
+            %div
+              %p Red Hat Is Delivering OpenShift PaaS for Real World Enterprise Consumption
+        %section
+          %section
+            %h2.middle2 So How Do I Get It?
+          %section
+            %h3 Hosted
+            %div
+              %br/
+            %div
+              %a{:href => "http://openshift.redhat.com"} http://openshift.redhat.com
+            %div
+              %br/
+            %div
+              %p PaaS in the public cloud
+              %p Runs on AWS
+              %p Managed by Red Hat
+            %div
+              %br/
+            %div Free and paid tiers
+          %section
+            %h3 Enterprise
+            %div
+              %br/
+            %div OpenShift platform running on your cloud
+            %div
+              %br/
+            %div DevOps
+            %div
+              %i Let developers innovate at their own pace
+            %div
+              %br/
+            %div ITOps
+            %div
+              %i Allow IT to maintain control and governance
+            %div
+              %br/
+        %section
+          %h2.middle2 Demo Time
+        %section
+          %h2 Thank You
+          %div
+            %br/
+          %div
+            %p Fotios Lindiakos
+            %p fotios@redhat.com
+          %div
+            %img.noshadow(src="images/openshift.png"){:style => "height: 400px"}
+
+    .share-reveal{:style => "position: absolute; bottom: 10px; left: 50%; margin-left: -140px; z-index: 20;"}
+      %p Fotios Lindiakos - NYC Camp 2013
+
+    %script{:src => "lib/js/head.min.js"}
+    %script{:src => "js/reveal.min.js"}
+    %script{:src => "js/jquery-1.9.1.min.js"}
+    %script{:src => "js/jquerytypewriter.js"}
+
+    :javascript
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'lib/js/fullscreen-img.js' },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+      // Add a typewriter effect on the setenforce text
+      Reveal.addEventListener( 'fragmentshown', function( event ) {
+        // Make sure the fragment is the one we are looking for
+        if (event.fragment.id == 'setenforce') {
+          $('#' + event.fragment.id).typewrite({
+            'delay': 100, //time in ms between each letter
+            'extra_char': '', //"cursor" character to append after each display
+            'trim': true, // Trim the string to type (Default: false, does not trim)
+            'callback': null // if exists, called after all effects have finished
+          });
+        }
+      } );
+
+      // Round background image edges
+      Reveal.addEventListener( 'ready', function( event ) {
+        console.log("I'm ready");
+        console.log($('.rounded-img'));
+
+        $(".state-background").load(function() {
+          console.log(this);
+          $(this).wrap(function(){
+            return '<span class="' + $(this).attr('class') + '" style="background:url(' + $(this).attr('src') + ') no-repeat center center; width: ' + $(this).width() + 'px; height: ' + $(this).height() + 'px;" />';
+          });
+          $(this).css("opacity","0");
+        });
+
+      });
+

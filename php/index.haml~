@@ -1,0 +1,435 @@
+.reveal
+  .slides
+  %section
+    %h1 OpenShift & Drupal
+    %h2 A match made in the Cloud
+    %div
+      %br/
+    %div
+      %br/
+    %div
+      %font{:style => "font-size: 32px;"} Fotios Lindiakos
+    %div
+      %font{:style => "font-size: 32px;"} fotios@redhat.com
+    %div
+      %font{:style => "font-size: 32px;"} OpenShift Software Engineer
+    %div
+      %br/
+    = succeed "&nbsp;" do
+      %img{:src => "https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/49636/redhat.png", :style => "font-style: italic; width: 185.9047619047619px; height: 61px; max-height: none; max-width: none;"}/
+    %img{:src => "https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/49641/openshift.png", :style => "width: 350.8283582089552px; height: 53px; max-height: none; max-width: none;"}/
+    %br/
+  %section
+    %h2 What is OpenShift?
+    %div
+      %br/
+    %p Red Hat's free, cloud-hosted PaaS
+  %section
+    %section
+      %h2 So What is Paas?
+      %div
+        %br/
+      %div
+        %br/
+      %div
+        Platform 
+        %span as 
+        %span a 
+        %span Service
+      %div
+        %br/
+      %div
+        %br/
+      .fragment{"data-fragment-index" => "0"}
+        %i
+          %font{:style => "font-size: 42px;"}
+            %b It's kind of like Amazon, right?
+      .fragment{"data-fragment-index" => "1"}
+        %i
+          %font{:style => "font-size: 42px;"}
+            %b Nope!
+        %br/
+    %section
+      %h2 Iaas
+      %div
+        %br/
+      %p Infrastructure as a Service
+      %p
+        %br>/
+        Servers run in the cloud
+      %p
+        %br/
+        %i
+          You build and manage EVERYTHING
+          %br>/
+          (OS, App Servers, Database)
+      %p
+        %i
+          %br/
+      %p.fragment{"data-fragment-index" => "0"}
+        %i
+          %font{:style => "font-size: 42px;"}
+            %b Guess how much time you actually spend on your application?
+    %section
+      %h2 SAAS
+      %p
+        %br/
+      %p
+        %span Software as a Service
+      %p
+        %span
+          %br/
+      %p Somebody else's application running in the cloud
+      %p
+        %br/
+      %p
+        %i You're restricted to the features of their application
+      %p
+        %i
+          %br/
+      %p.fragment{"data-fragment-index" => "0"}
+        %b
+          %font{:color => "#ffffff", :style => "font-size: 42px;"}
+            %i Want to change something? Good luck with that...
+    %section
+      %h2 Paas
+      %div Platform as a Service
+      %div
+        %br/
+      %div Your applications
+      %div Our platform
+      %div Running ANYWHERE
+      %div
+        %br/
+      .fragment{"data-fragment-index" => "0"}
+        %i
+          %font{:style => "font-size: 42px;"} Much less work than IaaS
+      .fragment{"data-fragment-index" => "1"}
+        %i
+          %font{:style => "font-size: 42px;"} Much more flexible than SaaS
+      %div
+        %br/
+      %div
+        %br/
+      %div
+        %br/
+    %section
+      %h2 To put it all together
+      %div
+        %br/
+      %div
+        %img{:src => "https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50321/cloud_diagram.png", :style => "width: 548.9206680584551px; height: 451px; max-height: none; max-width: none;"}/
+        %br/
+    %section
+      %h2 Why Paas?
+      %div
+        %br/
+      %div
+        %span YOU code the application, WE run it for you
+        %br/
+      %div
+        %span
+          %br/
+      %div
+        %span Leverage the ease, scale, and power of the Cloud
+      %div
+        %span
+          %br/
+      %div
+        %img{:src => "https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50339/workflow.png"}/
+        %span
+          %br/
+      .absolute-element.fragment{"data-fragment-index" => "0", :style => "position: absolute; width: 94px; height: 46px; z-index: 7; left: 176px; top: 520px;"} Code
+      .absolute-element.fragment{"data-fragment-index" => "1", :style => "position: absolute; width: 123px; height: 46px; z-index: 5; left: 406px; top: 520px;"} Deploy
+      .absolute-element.fragment{"data-fragment-index" => "2", :style => "position: absolute; width: 111px; height: 46px; z-index: 6; left: 660px; top: 520px;"} Enjoy!
+  %section
+    %section
+      %h2 PaaS is the future
+      %div
+        %br/
+      %div
+        %br/
+      %blockquote
+        “The use of Platform-as-a-Service technologies will enable IT organizations to become more agile and more responsive to the business needs.”  - Gartner
+        %br/
+      %p
+        %font{:style => "font-size: 18px;"}
+          %br/
+      %p
+        %font{:style => "font-size: 18px;"}
+          %br/
+      %p
+        %font{:style => "font-size: 18px;"}
+          %br/
+      %p
+        %font{:style => "font-size: 18px;"}
+          %br/
+      %p
+        %font{:style => "font-size: 18px;"} http://www.gartner.com/technology/research/cloud-computing/report/paas-cloud.jsp
+    %section
+      %h2 The Old Days
+      %div
+        %div{:font => "", :style => "font-size: 24px;"}
+          %ol
+            %li
+              %span{:style => "text-align: center;"} Have Idea
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Get Budget
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Submit hardware acquisition request
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Wait
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Get Hardware
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Deploy framework/appserver
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Deploy testing tools
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Test testing tools
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Code, test, repeat
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Configure Prod servers (and buy them if needed)
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Push to Prod
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Launch
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Order more servers to meet demand
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Wait
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Deploy new servers
+              %br/
+            %li
+              %span{:style => "text-align: center;"} Etc.
+              %br/
+    %section
+      %h2 Now
+      %div
+        %br/
+      %div
+        %ol
+          %li Have Idea
+          %li Code, test repeat
+          %li Launch
+          %li Scale
+  %section
+    %section
+      %h2 So Why OpenShift?
+    %section
+      %h2 It's easy
+      %div
+        %br/
+      %div Work the way you want
+      %div
+        %br/
+      %div
+        %ul
+          %li Developers work in their IDE, browser, or CLI
+          %li Limitless Possibilities
+        %ul
+          %li Java, Ruby, Node.js, PHP, Python, Perl
+          %li MySQL, PostgreSQL, MongoDB, MariaDB
+          %li Druapal, Wordpress, Rails, Django
+    %section
+      %h2 CLI Example
+      %div
+        %br/
+      .fragment{"data-fragment-index" => "0", :style => "margin-left: 40px"}
+        %p{:style => "text-align: left; "} Create
+        %pre
+          %code
+            :preserve
+              rhc app create -a myapp -t jbossas-7
+              rhc app cartridge add -a myapp -c mongodb-2.0      .fragment{"data-fragment-index" => "1", :style => "margin-left: 40px"}
+        %p{:style => "text-align: left; "} Code
+        %pre
+          %code
+            :preserve
+              cd myapp
+              cp /path/to/war/myfile.war ./deployments      .fragment{"data-fragment-index" => "2", :style => "margin-left: 40px"}
+        %p{:style => "text-align: left; "} Deploy
+        %pre
+          %code
+            :preserve
+              git add ./deployments/myfile.war
+              git commit -m "OpenShift is easy"
+              git push    %section
+      %h2 Title
+      %div
+        %br/
+      %div{:style => "text-align: left; "}
+        %blockquote{:style => "margin: 0 0 0 40px; border: none; padding: 0px;"}
+          %div{:style => "text-align: left; "} asdf
+    %section
+      %h2 It's Secure
+      %div
+        %br/
+      %div
+        %span Secure Multitenancy with SELinux
+        %br/
+    %section
+      %h2 It's Open
+      %div
+        %br/
+      %div No lock-in
+      %div
+        %br/
+      %div Any  hypervisor
+      %div Any middleware
+      %div Any cloud
+      %div Any datastore
+    %section
+      %h2 It's Enterprise Class
+      %div
+        %br/
+      %div Operated by Red Hat
+      %div
+        %br/
+      %div We will be here when you need us
+    %section
+      %h2 It's Open Source
+      %div
+        %br/
+      %div
+        %a{:href => "http://openshift.github.io/"}
+          http://openshift.github.io/
+          %br/
+      %div
+        %br/
+      %div PaaS built by the community
+      %div The latest stuff, the most innovation
+      %div
+        %br/
+      %div Apache 2.0 License
+      %div Available as source, RPMs, ISO, VM image
+      %div
+        %br/
+      %div IRC, forums, email
+      %div
+        %br/
+      %div
+        %br/
+  %section
+    %section
+      %h2 Enterprises want paas
+      %div
+        %br/
+      %div
+        %div Helps drive innovation
+        %div Enables faster time-to-market
+        %div Reduces costs
+        %div Drives more efficient use of infrastructure
+        %div Enables Business Transformation
+      %div
+        %br/
+    %section
+      %h2 But it brings challenges
+      %div
+        %br/
+      %div Security
+      %div Compliance
+      %div Data Locality
+      %div Governance
+      %div
+        %br/
+      %div
+        %br/
+      .fragment
+        %i Today's PaaS 1.0 solutions don't have the answers
+    %section
+      %h2 PaaS 2.0
+      %div
+        %br/
+      %div
+        %div Red Hat Will Be Delivering 
+        %div OpenShift PaaS 
+        %div for Real World Enterprise Consumption
+    %section
+      %h2 Hosted
+      %div
+        %br/
+      %div
+        %a{:href => "http://openshift.redhat.com"} http://openshift.redhat.com
+      %div
+        %br/
+      %div PaaS in the public cloud
+      %div Runs on AWS
+      %div Managed by Red Hat
+      %div
+        %br/
+      %div Free and paid tiers
+    %section
+      %h2 Enterprise
+      %div
+        %br/
+      %div OpenShift platform running on your cloud
+      %div
+        %br/
+      %div DevOps
+      %div
+        %i Let developers innovate at their own pace
+      %div
+        %br/
+      %div ITOps
+      %div
+        %i Allow IT to maintain control and governance
+      %div
+        %br/
+  %section
+    %section
+      %h2 Demo Time
+    %section
+      %div
+        %br/
+      %font{:style => "font-size: 54px;"} Thank You
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %span{:style => "font-size: 54px;"}
+          %br/
+      %div{:style => "text-align: right; "}
+        %font{:style => "font-size: 32px;"} Fotios Lindiakos  
+      %div
+        %div{:style => "text-align: right;"}
+          %font{:style => "font-size: 32px;"} fotios@redhat.com
+          \ 
+        %div
+          %br/
+        .absolute-element{:style => "position: absolute; width: 468px; height: 467px; z-index: 4; left: 4px; top: 173px;"}
+          %img{:src => "https://s3.amazonaws.com/media-p.slid.es/uploads/fotios/images/50372/2000px-OpenShift-LogoType.svg.png", :style => "width: 428px; height: 428px; max-height: none; max-width: none;"}/
+          %br/
+        .absolute-element{:style => "position: absolute; width: 468px; height: 467px; z-index: 4; left: 4px; top: 173px;"}
+          %br/
