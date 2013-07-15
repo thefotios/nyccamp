@@ -19,6 +19,21 @@
         font-weight: bold;
         font-style: italic;
       }
+      
+      .columns {
+        -moz-column-count:2; /* Firefox */
+        -webkit-column-count:2; /* Safari and Chrome */
+        column-count:2;
+        height: 500px;
+      }
+      
+      .columns ol li.col {
+        margin-top: 30px;
+      }
+      
+      .columns ol li {
+        margin-left: 10px;
+      }
     </style>
   </head>
   <body>
@@ -26,8 +41,10 @@
       <div class='slides'>
         <section>
           <div class='middle2'>
-            <h3>
+            <h2>
               <p>OpenShift & Drupal</p>
+            </h2>
+            <h3>
               <p>A Match Made in the Cloud</p>
             </h3>
             <div>
@@ -163,7 +180,7 @@
           </section>
           <section>
             <h3>The Old Days</h3>
-            <div class='multicolumn1' style='font-size: 18px'>
+            <div class='columns' style='font-size: 24px'>
               <ol>
                 <li>Have Idea</li>
                 <li>Get Budget</li>
@@ -174,7 +191,7 @@
                 <li>Deploy testing tools</li>
                 <li>Test testing tools</li>
                 <li>Code, test, repeat</li>
-                <li>Configure Prod servers</li>
+                <li class='col'>Configure Prod servers</li>
                 <li>Push to Prod</li>
                 <li>Launch</li>
                 <li>Order more servers to meet demand</li>
@@ -244,8 +261,11 @@
               <br>
             </div>
             <div>
-              <span>Secure Multitenancy with SELinux</span>
-              <br>
+              <p>Secure Multitenancy with SELinux</p>
+              <p>Resource allocation with CGroups</p>
+            </div>
+            <div>
+              <p></p>
             </div>
           </section>
           <section>
@@ -254,12 +274,15 @@
               <br>
             </div>
             <div>No lock-in</div>
-            <ul>
-              <li>Any hypervisor</li>
-              <li>Any middleware</li>
-              <li>Any cloud</li>
-              <li>Any datastore</li>
-            </ul>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Any hypervisor</p>
+              <p>Any middleware</p>
+              <p>Any cloud</p>
+              <p>Any datastore</p>
+            </div>
           </section>
           <section>
             <h3>It's Enterprise Class</h3>
@@ -286,19 +309,18 @@
             <div>
               <br>
             </div>
-            <div>PaaS built by the community</div>
-            <div>The latest stuff, the most innovation</div>
+            <div>
+              <p>PaaS built by the community</p>
+              <p>The latest stuff, the most innovation</p>
+              <p>Apache 2.0 License</p>
+              <p>Available as source, RPMs, ISO, VM image</p>
+              <p>IRC, forums, email</p>
+            </div>
             <div>
               <br>
             </div>
-            <div>Apache 2.0 License</div>
-            <div>Available as source, RPMs, ISO, VM image</div>
-            <div>
-              <br>
-            </div>
-            <div>IRC, forums, email</div>
-            <div>
-              <br>
+            <div class='thought fragment'>
+              <p class='fragment'>And an awesome partner ecosystem!</p>
             </div>
             <div>
               <br>
@@ -355,7 +377,7 @@
             <h2 class='middle2'>So How Do I Get It?</h2>
           </section>
           <section>
-            <h3>Hosted</h3>
+            <h3>Online</h3>
             <div>
               <br>
             </div>
@@ -376,11 +398,30 @@
             <div>Free and paid tiers</div>
           </section>
           <section>
+            <h3>Origin</h3>
+            <div>
+              <br>
+            </div>
+            <div>
+              <p>Run it in your own datacenter</p>
+              <p>Run it on your laptop!</p>
+            </div>
+            <div>
+              <br>
+            </div>
+            <div class='thought'>
+              <p class='fragment'>And if you really like it...</p>
+            </div>
+          </section>
+          <section>
             <h3>Enterprise</h3>
             <div>
               <br>
             </div>
-            <div>OpenShift platform running on your cloud</div>
+            <div>
+              <p>OpenShift platform running on your cloud</p>
+              <p>World-class Red Hat support</p>
+            </div>
             <div>
               <br>
             </div>

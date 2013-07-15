@@ -21,13 +21,29 @@
         font-style: italic;
       }
 
+      .columns {
+        -moz-column-count:2; /* Firefox */
+        -webkit-column-count:2; /* Safari and Chrome */
+        column-count:2;
+        height: 500px;
+      }
+
+      .columns ol li.col {
+        margin-top: 30px;
+      }
+
+      .columns ol li {
+        margin-left: 10px;
+      }
+
   %body
     .reveal
       .slides
         %section
           .middle2
-            %h3
+            %h2
               %p OpenShift & Drupal
+            %h3
               %p A Match Made in the Cloud
             %div
               %br/
@@ -124,7 +140,7 @@
                 %font{:style => "font-size: 18px;"} http://www.gartner.com/technology/research/cloud-computing/report/paas-cloud.jsp
           %section
             %h3 The Old Days
-            %div.multicolumn1{:style => "font-size: 18px"}
+            %div.columns{:style => "font-size: 24px"}
               %ol
                 %li Have Idea
                 %li Get Budget
@@ -135,7 +151,7 @@
                 %li Deploy testing tools
                 %li Test testing tools
                 %li Code, test, repeat
-                %li Configure Prod servers
+                %li.col Configure Prod servers
                 %li Push to Prod
                 %li Launch
                 %li Order more servers to meet demand
@@ -199,18 +215,22 @@
             %div
               %br/
             %div
-              %span Secure Multitenancy with SELinux
-              %br/
+              %p Secure Multitenancy with SELinux
+              %p Resource allocation with CGroups
+            %div
+              %p 
           %section
             %h3 It's Open
             %div
               %br/
             %div No lock-in
-            %ul
-              %li Any hypervisor
-              %li Any middleware
-              %li Any cloud
-              %li Any datastore
+            %div
+              %br/
+            %div
+              %p Any hypervisor
+              %p Any middleware
+              %p Any cloud
+              %p Any datastore
           %section
             %h3 It's Enterprise Class
             %div
@@ -229,17 +249,16 @@
                 %br/
             %div
               %br/
-            %div PaaS built by the community
-            %div The latest stuff, the most innovation
+            %div
+              %p PaaS built by the community
+              %p The latest stuff, the most innovation
+              %p Apache 2.0 License
+              %p Available as source, RPMs, ISO, VM image
+              %p IRC, forums, email
             %div
               %br/
-            %div Apache 2.0 License
-            %div Available as source, RPMs, ISO, VM image
-            %div
-              %br/
-            %div IRC, forums, email
-            %div
-              %br/
+            %div.thought.fragment
+              %p.fragment And an awesome partner ecosystem!
             %div
               %br/
         %section
@@ -278,7 +297,7 @@
           %section
             %h2.middle2 So How Do I Get It?
           %section
-            %h3 Hosted
+            %h3 Online
             %div
               %br/
             %div
@@ -293,10 +312,23 @@
               %br/
             %div Free and paid tiers
           %section
+            %h3 Origin
+            %div
+              %br/
+            %div
+              %p Run it in your own datacenter
+              %p Run it on your laptop!
+            %div
+              %br/
+            .thought
+              %p.fragment And if you really like it...
+          %section
             %h3 Enterprise
             %div
               %br/
-            %div OpenShift platform running on your cloud
+            %div
+              %p OpenShift platform running on your cloud
+              %p World-class Red Hat support
             %div
               %br/
             %div DevOps
